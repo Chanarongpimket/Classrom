@@ -37,11 +37,11 @@ const mypassword = '12345'
 
 // page => welcome
 app.get('/',(req,res) => {
-    session = req.session;
+    var session = req.session;
     if(session.userid){
         res.send("Welcome User <a href=\'/logout'>click to logout</a>");
     }else
-    res.sendFile('view/index.html',{root:__dirname})
+    res.sendFile('views/index.html',{root:__dirname})
 });
 
 // page => User 
