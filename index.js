@@ -1,7 +1,7 @@
 // Import library
 const express = require('express');
 const cookieParser = require('cookie-parser');
-const session = require('express-session');
+const sessions = require('express-session');
 
 // Initial express app
 const app = express();
@@ -9,7 +9,7 @@ const PORT = 3000;
 
 // Add the Express-session option
 const oneDay = 1000 * 60 * 60 * 24;
-app.use(session({
+app.use(sessions({
     secret: "thisismysecretkey",
     saveUninitialized:true,
     cookie: { maxAge: oneDay },
@@ -31,7 +31,7 @@ const myusername = 'admin'
 const mypassword = '12345'
 
 // a variable to save session
-// var session;
+var session;
 
 
 
@@ -47,8 +47,8 @@ app.get('/',(req,res) => {
 // page => User 
 app.post('/user',(req,res) => {
     if(req.body.username == myusername && req.body.password == mypassword){
-        session = req.session;
-        session.userid = req.body.username;
+        session=req.session;
+        session.userid=req.body.username;
         console.log(req.session)
         res.send(`Hello, welcome <a href=\'/logout'>click to logout</a>");`)
     }

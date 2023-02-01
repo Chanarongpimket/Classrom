@@ -107,9 +107,7 @@ input {
     left: 50%;
     width: 50%;
     height: 100%;
-    /* overflow: hidden;
-    transition: transform 0.6s ease-in-out;
-    z-index: 100; */
+    overflow: hidden;
 }
 .overlay-panel {
     position: absolute;
