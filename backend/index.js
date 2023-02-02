@@ -33,6 +33,7 @@ app.set('views', templatePath)
 
 // Serving public file
 app.use(express.static(__dirname));
+app.use(express.static(path.join("../frotend")))
 
 // Cookie parser middleware
 app.use(cookieParser());
@@ -58,17 +59,17 @@ require('./route/account.route.js')(app);
 // });
 
 // page => User 
-app.post('/user',(req,res) => {
-    if(req.body.username == myusername && req.body.password == mypassword){
-        session=req.session;
-        session.userid=req.body.username;
-        console.log(req.session)
-        res.send(`Hello, welcome <a href=\'/logout'>click to logout</a>");`)
-    }
-    else{
-        res.send('Invalid username or password')
-    }
-});
+// app.post('/user',(req,res) => {
+//     if(req.body.username == myusername && req.body.password == mypassword){
+//         session=req.session;
+//         session.userid=req.body.username;
+//         console.log(req.session)
+//         res.send(`Hello, welcome <a href=\'/logout'>click to logout</a>");`)
+//     }
+//     else{
+//         res.send('Invalid username or password')
+//     }
+// });
 
 // page => signup
 app.post('/signup',async (req,res)=>{
