@@ -46,7 +46,7 @@ var session;
 
 // routing
 app.use(cors())
-require('./route/login.route.js')(app);
+require('./route/account.route.js')(app);
 
 // page => welcome
 // app.get('/',(req,res) => {
