@@ -3,9 +3,14 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const sessions = require('express-session');
 const bodyParser = require('body-parser')
+const path = require('path')
+const hbs = require('hbs')
 
-const collection = require('./src/mongodb')
+
+const collection = require('./models/account.js')
 const dbConfig = require('./config/mongodb.config.js')
+const cors = require('cors')
+const templatePath=path.join(__dirname,'../frontend/views')
 
 // Initial express app
 const app = express();
@@ -23,6 +28,8 @@ app.use(sessions({
 // Parsing the incoming data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.set('view engine', 'hbs')
+app.set('views', templatePath)
 
 // Serving public file
 app.use(express.static(__dirname));
@@ -37,16 +44,18 @@ const mypassword = '12345'
 // a variable to save session
 var session;
 
-
+// routing
+app.use(cors())
+require('./route/login.route.js')(app);
 
 // page => welcome
-app.get('/',(req,res) => {
-    session = req.session;
-    if(session.userid){
-        res.send("Welcome User <a href=\'/logout'>click to logout</a>");
-    }else
-        res.sendFile('./forntend/views/login.html',{root:__dirname})
-});
+// app.get('/',(req,res) => {
+//     session = req.session;
+//     if(session.userid){
+//         res.send("Welcome User <a href=\'/logout'>click to logout</a>");
+//     }else
+//         res.sendFile('login.html', { root: path.join(__dirname, '../frontend/views') });
+// });
 
 // page => User 
 app.post('/user',(req,res) => {

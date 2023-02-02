@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="/public/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <div class="container" id="container">
+        <div class="form-container sign-in-container">
+            <form action="/user" method="post">
+                <h1 style="padding-bottom: 15px">Login</h1>
+                <input type="text" name="username" id="username" placeholder="Username">
+                <input type="password" name="password" id="password" placeholder="Password">
+                <button style="margin-top: 10px"> Login</button>
+                <h5 style="margin-top: 1.5rem;">New to Classroom? <a class="ghost" href="./signup.hbs"id="signUp" style="color:#000;"><u>Sign Up</u></a></h5>
+            </form>
+        </div>
+        <div class="overlay-container">
+                <div class="overlay-panel overlay-right">
+                    <img src="https://cdn.pixabay.com/photo/2017/03/27/15/07/asphalt-2179279_1280.jpg" alt="movie-2" height="800" width="600"/>
+                </div>
+        </div>
+    </div>
+</body>
+</html>
