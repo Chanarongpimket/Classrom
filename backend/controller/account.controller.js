@@ -7,7 +7,6 @@ exports.home = (req, res) => {
     session = req.session;
     if(session.userid){
         res.render("home");
-        res.send("Welcome User <a href=\'/logout'>click to logout</a>");
 
     }else
         res.render('login')
@@ -23,4 +22,16 @@ exports.user = (req, res) => {
     else{
         res.send('Invalid username or password')
     }
+};
+
+exports.signup = (req, res) => {
+    res.render("signup")
+};
+
+exports.signin = (req, res) => {
+    res.render('login')
+};
+
+exports.login = (req, res) => {
+    res.render('login')
 };

@@ -2,20 +2,20 @@
 <html>
 <head>
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="/public/signup.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/signup.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-            <form action="">
+            <form action="/signup" method="post">
                 <h1 style="padding-top: 15px"> Create Account</h1>
                 <input type="email" name="email" placeholder="Email">
                 <input type="text" name="name" placeholder="Username">
                 <input type="password" name="password" placeholder="Password">
-                <button style="margin-top:10px"> Create Account</button>
-                <h5 style="margin: 1.5rem;">Already have an account! <a class="ghost" href="/views/login.hbs" id="signIn" style="color:#000;"><u>Sign In</u></a></h5>
+                <button style="margin-top:10px"> Create Account </button>
+                <h5 style="margin: 1.5rem;">Already have an account! <a class="ghost" href="/login" id="signIn" style="color:#000;"><u>Sign In</u></a></h5>
             </form>
         </div>
         <div class="overlay-container">
