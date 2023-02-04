@@ -2,9 +2,6 @@ const path = require('path');
 const collection = require('../models/account');
 var session;
 
-const myusername = 'admin'
-const mypassword = '12345'
-
 exports.home = (req, res) => {
     session = req.session;
     if(session.userid){
@@ -14,15 +11,20 @@ exports.home = (req, res) => {
         res.render('login')
 };
 
-exports.user = (req, res) => {
-    if(req.body.username == myusername && req.body.password == mypassword){
-        session=req.session;
-        session.userid=req.body.username;
-        console.log(req.session)
-        res.render('home')
+exports.read = async (req, res) => {
+    
+    try{
+        const check = await collection.findOne({username:req.body.username})
+
+        if (check.password===req.body.password){
+            res.render('home')
+        }
+        else {
+            res.send('wrong password')
+        }
     }
-    else{
-        res.send('Invalid username or password')
+    catch {
+        res.send('wrong details')
     }
 };
 
@@ -36,9 +38,9 @@ exports.create = async (req, res) => {
 
     try {
         await collection.insertMany([data]);
-        res.render('home')
+        res.render('login')
     } catch (error) {
-        res.status(500).send(error);
+        res.send('Register please')
     }
 };
 

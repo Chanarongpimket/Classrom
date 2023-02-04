@@ -6,12 +6,12 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const hbs = require('hbs');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 
-
+// connect path
 const collection = require('./models/account.js');
 const dbConfig = require('./config/mongodb.config.js');
-const cors = require('cors');
 const templatePath=path.join(__dirname,'../frontend/views');
 
 // Initial express app
@@ -40,31 +40,9 @@ app.use(express.static(path.join("../frontend")));
 // Cookie parser middleware
 app.use(cookieParser());
 
-// Setup authentication credential
-const myusername = 'admin'
-const mypassword = '12345'
-
-// a variable to save session
-// var session;
-
 // routing
 app.use(cors())
 require('./route/account.route.js')(app);
-
-
-//page => signup
-// app.post('/signup',async (req,res)=>{
-// const data={
-//     email:req.body.email,
-//     name:req.body.name,
-//     password:req.body.password
-// }
-
-// await collection.insertMany([data])
-
-// res.render('home')
-
-// })
 
 
 // page => logout
