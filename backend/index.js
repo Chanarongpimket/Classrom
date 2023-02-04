@@ -5,6 +5,8 @@ const sessions = require('express-session');
 const bodyParser = require('body-parser');
 const path = require('path');
 const hbs = require('hbs');
+const mongoose = require('mongoose');
+
 
 
 const collection = require('./models/account.js');
@@ -43,27 +45,26 @@ const myusername = 'admin'
 const mypassword = '12345'
 
 // a variable to save session
-var session;
+// var session;
 
 // routing
 app.use(cors())
 require('./route/account.route.js')(app);
 
 
-// page => signup
-app.post('/signup',async (req,res)=>{
+//page => signup
+// app.post('/signup',async (req,res)=>{
+// const data={
+//     email:req.body.email,
+//     name:req.body.name,
+//     password:req.body.password
+// }
 
-const data={
-    email:req.body.email,
-    name:req.body.name,
-    password:req.body.password
-}
+// await collection.insertMany([data])
 
-await collection.insertMany([data])
+// res.render('home')
 
-res.render('home')
-
-})
+// })
 
 
 // page => logout
@@ -80,3 +81,14 @@ app.get('*', (req,res) => {
 app.listen(PORT, () => {
     console.log(`Server Running at port ${PORT}`)
 });
+
+// connect database
+mongoose.set('strictQuery', false);
+mongoose.Promise = global.Promise;
+mongoose.connect(dbConfig.url)
+    .then(()=>{
+        console.log('Connect')
+    }).catch(err=>{
+        console.log("Can't connect to MongoDB")
+        process.exit();
+    })

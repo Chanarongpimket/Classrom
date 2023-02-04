@@ -1,12 +1,14 @@
-const customer = require('../models/customer.js')
-const path = require('path')
+const path = require('path');
+const collection = require('../models/account');
+var session;
+
 const myusername = 'admin'
 const mypassword = '12345'
 
 exports.home = (req, res) => {
     session = req.session;
     if(session.userid){
-        res.render("home");
+        res.render("home")
 
     }else
         res.render('login')
@@ -24,14 +26,27 @@ exports.user = (req, res) => {
     }
 };
 
+
+exports.create = async (req, res) => {
+    const data={
+        email:req.body.email,
+        username:req.body.username,
+        password:req.body.password
+    }
+
+    try {
+        await collection.insertMany([data]);
+        res.render('home')
+    } catch (error) {
+        res.status(500).send(error);
+    }
+};
+
+  
+
 exports.signup = (req, res) => {
     res.render("signup")
 };
-
-exports.signin = (req, res) => {
-    res.render('login')
-};
-
 exports.login = (req, res) => {
     res.render('login')
 };
