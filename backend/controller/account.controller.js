@@ -5,10 +5,10 @@ var session;
 exports.home = (req, res) => {
     session = req.session;
     if(session.userid){
-        res.render("home")
+        res.render("home");
 
     }else
-        res.render('login')
+        res.render('index');
 };
 
 exports.read = async (req, res) => {
@@ -17,7 +17,7 @@ exports.read = async (req, res) => {
         const check = await collection.findOne({username:req.body.username})
 
         if (check.password===req.body.password){
-            res.render('home')
+            res.render('home');
         }
         else {
             res.send('wrong password')
