@@ -10,7 +10,6 @@ const cors = require('cors');
 
 
 // connect path
-const collection = require('./models/account.js');
 const dbConfig = require('./config/mongodb.config.js');
 const templatePath=path.join(__dirname,'../frontend/views');
 
@@ -43,6 +42,7 @@ app.use(cookieParser());
 // routing
 app.use(cors())
 require('./route/account.route.js')(app);
+require('./route/class.route.js')(app);
 
 
 // page => logout

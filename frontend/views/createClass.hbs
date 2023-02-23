@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Create Classroom</title>
+  <link rel="stylesheet" type="text/css" href="/public/css/join&create.css">
+
+</head>
+<body>
+  <h1>Create Classroom</h1>
+  <form method="post" action="/classrooms">
+    <label for="name">Classroom Name:</label>
+    <input type="text" id="name" name="name" required>
+    <br>
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" rows="3"></textarea>
+    <br>
+    <button type="submit">Create</button>
+  </form>
+</body>
+</html>
