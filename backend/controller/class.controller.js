@@ -1,16 +1,24 @@
 const Classroom = require('../models/class');
 
 exports.create = async (req, res, next) => {
-  const { name, description } = req.body;
-  const owner = req.user._id;
-
-  try {
-    const code = generateCode(); // helper function to generate a unique code
-    const classroom = await Classroom.create({ name, description, owner, code });
-    res.status(201).json(classroom);
-  } catch (error) {
-    next(error);
+  const data = {
+    classname: req.body.classname,
+    description: req.body.description
   }
+  const newclass = new Classroom(data)
+  newclass.save(
+  )
+  res.redirect('/')
+  // const { name, description } = req.body;
+  // // const owner = req.body;
+
+  // try {
+  //   const code = generateCode(); // helper function to generate a unique code
+  //   const classroom = await Classroom.create({ name, description, owner, code });
+  //   res.status(201).json(classroom);
+  // } catch (error) {
+  //   next(error);
+  // }
 };
 
 exports.join = async (req, res, next) => {

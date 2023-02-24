@@ -1,4 +1,5 @@
 const collection = require('../models/account');
+const Classroom = require('../models/class');
 const oneDay = 1000 * 60 * 60 * 24;
 const express = require('express');
 const sessions = require('express-session');
@@ -23,11 +24,19 @@ var session;
 exports.home = (req, res) => {
     session = req.session;
     if(session.userid){
-        res.render("home");
-
+        Classroom.find((err,docs) => {
+            if(!err){
+                res.render("home", {data: docs});
+            }
+            else{
+                res.render("index");
+            }
+        });
     }else
         res.render('index');
+    
 };
+
 
 exports.read = async (req, res) => {
     try{

@@ -97,7 +97,15 @@
 
     <section class="home">
         <div class="text">Dashboard Sidebar</div>
-    </section>
+        
+        <% if(data.length){ %> 
+          <% for (var i = 0; i < data.length; i++) { %>
+            <p><%= data[i].classname %></p>
+            <p><%= data[i].description %></p>
+          <% } %>
+        <% } %>
+      </section>
+      
 
     <script>
         const body = document.querySelector('body'),

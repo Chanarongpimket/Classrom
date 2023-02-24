@@ -4,7 +4,6 @@ const cookieParser = require('cookie-parser');
 const sessions = require('express-session');
 const bodyParser = require('body-parser');
 const path = require('path');
-const hbs = require('hbs');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
@@ -29,12 +28,14 @@ app.use(sessions({
 // Parsing the incoming data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.set('view engine', 'hbs');
 app.set('views', templatePath);
+app.set('view engine', 'ejs')
+
 
 // Serving public file
 app.use(express.static(__dirname));
 app.use(express.static(path.join("../frontend")));
+app.use(express.static(path.join("../frontend/views/home.ejs")));
 
 // Cookie parser middleware
 app.use(cookieParser());
