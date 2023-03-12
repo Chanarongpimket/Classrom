@@ -1,7 +1,7 @@
 module.exports = (app) => {
     const  classroom = require("../controller/class.controller.js")
 
-    app.post('/classrooms', classroom.create);
+    app.post('/classroomscreate', classroom.create);
     app.post('/classrooms/join', classroom.join);
     
 

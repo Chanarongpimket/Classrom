@@ -46,7 +46,14 @@ exports.read = async (req, res) => {
             session = req.session;
             session.userid = req.body.username;
             console.log(req.session)
-            res.render('home');
+            Classroom.find((err,docs) => {
+                if(!err){
+                    res.render("home", {data: docs});
+                }
+                else{
+                    res.render("index");
+                }
+            });
         }
         else {
             res.send('wrong password')

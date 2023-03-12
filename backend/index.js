@@ -35,7 +35,7 @@ app.set('view engine', 'ejs')
 // Serving public file
 app.use(express.static(__dirname));
 app.use(express.static(path.join("../frontend")));
-app.use(express.static(path.join("../frontend/views/home.ejs")));
+// app.use(express.static(path.join("../frontend/views/home.ejs")));
 
 // Cookie parser middleware
 app.use(cookieParser());
