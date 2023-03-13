@@ -292,6 +292,11 @@ body.dark .switch::before{
     background-color: var(--body-color);
     transition: var(--tran-05);
 }
+
+.home a{
+    text-decoration: none;
+}
+
 .home .box{
     position: relative;
     width: 350px;

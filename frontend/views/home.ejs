@@ -96,19 +96,21 @@
     </nav>
 
     <section class="home">
-        <%if(data){%>
-            <div class="box">
-                <div class="content">
-                
-                    <% if(data.length){ %> 
-                        <% for (var i = 0; i < data.length; i++) { %>
-                            <h3><%= data[i].classname %></h3>
-                            <p><%= data[i].description %></p>
-                            <a href="/work">.</a>
+        <%if(data.length){%>
+            <a href="/work">
+                <div class="box">
+                    <div class="content">
+                    
+                        <% if(data.length){ %> 
+                            <% for (var i = 0; i < data.length; i++) { %>
+                                <h3><%= data[i].classname %></h3>
+                                <p><%= data[i].description %></p>
+                            <% } %>
                         <% } %>
-                    <% } %>
+                    </div>
                 </div>
-            </div>
+            </a>
+            
         <%}%>
         
         
