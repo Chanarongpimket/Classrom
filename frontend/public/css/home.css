@@ -292,11 +292,38 @@ body.dark .switch::before{
     background-color: var(--body-color);
     transition: var(--tran-05);
 }
-.home .text{
-    font-size: 30px;
-    font-weight: 500;
-    color: var(--text-color);
-    padding: 12px 60px;
+.home .box{
+    position: relative;
+    width: 350px;
+    padding: 40px;
+    background: #695CFE;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 1);
+    border-radius: 4px;
+    margin: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-align: center;
+    height: 25vh;
+}
+.home .box .content{
+    position: relative;
+    z-index: 1;
+    transition: 0.5s;
+}
+
+.home .box:hover .content{
+    color: #fff;
+}
+
+.home .content .box .content h3{
+    font-size: 20px;
+    margin: 10px 0;
+    padding: 0;
+}
+
+.home .content .box .content p{
+    margin: 0;
+    padding: 0 ;
 }
 
 .sidebar.close ~ .home{

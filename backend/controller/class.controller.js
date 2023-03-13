@@ -73,7 +73,7 @@ exports.create = async (req, res) => {
 
   try {
       await classroom.insertMany([data]);
-      res.render('home')
+      res.redirect('/')
   } catch (error) {
       res.send(error)
   }
@@ -106,4 +106,7 @@ exports.gotoJ = (req, res) => {
 };
 exports.gotoC = (req, res) => {
   res.render('createClass')
+};
+exports.gotowork = (req, res) => {
+  res.render('work')
 };

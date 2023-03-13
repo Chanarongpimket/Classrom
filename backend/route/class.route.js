@@ -7,4 +7,6 @@ module.exports = (app) => {
 
     app.get('/J', classroom.gotoJ);
     app.get('/C', classroom.gotoC);
+    app.get('/work', classroom.gotowork);
+    
 }
