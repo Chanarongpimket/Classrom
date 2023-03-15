@@ -5,8 +5,9 @@ module.exports = (app) => {
     app.post('/classrooms/join', classroom.join);
     
 
-    app.get('/J', classroom.gotoJ);
-    app.get('/C', classroom.gotoC);
+    app.get('/joinpage', classroom.gotoJ);
+    app.get('/createpage', classroom.gotoC);
     app.get('/work', classroom.gotowork);
+    app.get('/calendar', classroom.gotocalendar);
     
 }

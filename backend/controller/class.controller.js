@@ -110,3 +110,6 @@ exports.gotoC = (req, res) => {
 exports.gotowork = (req, res) => {
   res.render('work')
 };
+exports.gotocalendar = (req, res) => {
+  res.render('calendar')
+};

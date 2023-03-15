@@ -1,0 +1,60 @@
+.calendar {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 2px
+}
+/* Calendar Header */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    font-size: 24px;
+  }
+  
+  .prev-month, .next-month {
+    cursor: pointer;
+  }
+  
+  /* Calendar Weekdays */
+  .calendar-weekdays {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    font-size: 18px;
+  }
+  
+  /* Calendar Days */
+  .calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+  }
+  
+  .calendar-day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    font-size: 18px;
+  }
+  
+  .calendar-day:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .empty {
+    background-color: transparent;
+    border: none;
+  }
+  
